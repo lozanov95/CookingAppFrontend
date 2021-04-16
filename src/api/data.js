@@ -1,6 +1,7 @@
 import * as api from './api.js'
 
-api.settings.host = 'http://localhost:8000/api';
+//api.settings.host = 'http://localhost:8000/api';
+api.settings.host = 'https://cooking-app-backend-vasil-loz.herokuapp.com/api'
 
 export async function getRecipes() {
     return await api.get('/recipes');
