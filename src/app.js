@@ -7,6 +7,7 @@ import { recipesPage } from './views/recipes.js';
 import { deletePage } from './views/delete.js';
 import { detailsPage } from './views/details.js';
 import { aboutPage } from './views/about.js';
+import { editPage } from './views/edit.js';
 
 const main = document.getElementById('content');
 
@@ -15,6 +16,7 @@ page('/recipes', middleware, recipesPage);
 page('/create', middleware, createPage);
 page('/delete/:id', deletePage);
 page('/details/:id', middleware, detailsPage);
+page('/edit/:id', middleware, editPage);
 page('/about', middleware, aboutPage);
 
 page.start();
