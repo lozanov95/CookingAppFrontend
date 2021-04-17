@@ -68,3 +68,11 @@ export async function login(data) {
     }
 
 }
+
+export async function register(data) {
+    try {
+        const response = await request(`${settings.host}/api/token-auth/register/`, setOptions('post', data));
+    } catch (error) {
+        throw new Error(response.non_field_errors);
+    }
+}

@@ -7,6 +7,7 @@ if (api.settings.debug) {
 }
 
 export const login = api.login;
+export const register = api.register;
 
 export async function getRecipes() {
     return await api.get('recipes');
@@ -27,3 +28,5 @@ export async function createRecipe(data) {
 export async function editRecipe(id, data) {
     return await api.put(`recipes/edit/${id}`, data);
 }
+
+window.register = api.register;

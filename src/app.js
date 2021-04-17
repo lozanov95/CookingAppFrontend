@@ -9,6 +9,7 @@ import { detailsPage } from './views/details.js';
 import { aboutPage } from './views/about.js';
 import { editPage } from './views/edit.js';
 import { loginPage } from './views/login.js';
+import { registerPage } from './views/register.js';
 
 const main = document.getElementById('content');
 
@@ -20,6 +21,7 @@ page('/details/:id', middleware, detailsPage);
 page('/edit/:id', middleware, editPage);
 page('/about', middleware, aboutPage);
 page('/login', middleware, loginPage);
+page('/register', middleware, registerPage);
 
 page.start();
 
