@@ -25,6 +25,7 @@ function setOptions(method = 'get', data) {
     const headers = {};
 
     const authToken = sessionStorage.getItem('authToken');
+
     if (authToken) {
         headers['Authorization'] = 'Token ' + authToken;
     }
@@ -32,8 +33,10 @@ function setOptions(method = 'get', data) {
     if (data) {
         headers['Content-Type'] = 'application/json';
         options['body'] = JSON.stringify(data)
-        options['headers'] = headers
     }
+
+    options['headers'] = headers
+
     return options
 }
 
