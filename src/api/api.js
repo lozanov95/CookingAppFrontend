@@ -6,16 +6,17 @@ export const settings = {
 async function request(url, options = {}) {
     try {
         const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error(response.statusText)
+        }
         try {
-
             const data = await response.json();
             return data;
         } catch (error) {
             return response
         }
     } catch (error) {
-        console.log(error)
-        return error
+        throw new Error(error)
     }
 }
 
