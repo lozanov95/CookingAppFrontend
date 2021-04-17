@@ -8,6 +8,7 @@ if (api.settings.debug) {
 
 export const login = api.login;
 export const register = api.register;
+export const logout = api.logout;
 
 export async function getRecipes() {
     return await api.get('recipes');

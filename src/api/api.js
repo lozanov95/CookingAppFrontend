@@ -76,3 +76,12 @@ export async function register(data) {
         throw new Error(response.non_field_errors);
     }
 }
+
+export async function logout() {
+    try {
+        const response = await request(`${settings.host}/api/token-auth/logout/`, setOptions());
+        sessionStorage.clear()
+    } catch (error) {
+        throw new Error(error.statusText);
+    }
+}

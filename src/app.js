@@ -1,5 +1,7 @@
 import page from '../node_modules/page/page.mjs';
 import { render } from '../node_modules/lit-html/lit-html.js';
+import { logout } from './api/data.js';
+
 
 import { homePage } from './views/home.js';
 import { createPage } from './views/create.js';
@@ -22,6 +24,7 @@ page('/edit/:id', middleware, editPage);
 page('/about', middleware, aboutPage);
 page('/login', middleware, loginPage);
 page('/register', middleware, registerPage);
+page('/logout', logoutPage);
 
 page.start();
 
@@ -29,4 +32,9 @@ page.start();
 function middleware(ctx, next) {
     ctx.render = (content) => render(content, main);
     next();
+}
+
+async function logoutPage() {
+    await logout();
+    page.redirect('/');
 }
