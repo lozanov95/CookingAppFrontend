@@ -6,6 +6,8 @@ if (api.settings.debug) {
     api.settings.host = 'https://cooking-app-backend-vasil-loz.herokuapp.com'
 }
 
+export const login = api.login;
+
 export async function getRecipes() {
     return await api.get('recipes');
 }
