@@ -25,7 +25,7 @@ function setOptions(method = 'get', data) {
 
     const authToken = sessionStorage.getItem('authToken');
     if (authToken) {
-        headers['X-Authorization'] = 'Token ' + authToken;
+        headers['Authorization'] = 'Token ' + authToken;
     }
 
     if (data) {
