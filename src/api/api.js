@@ -54,6 +54,12 @@ export async function put(endpoint, data) {
 
 export async function login(data) {
     const response = await request(`${settings.host}/api-token-auth/`, setOptions('post', data));
-    sessionStorage.setItem('username', data.username);
-    sessionStorage.setItem('authToken', response.token);
+    const token = response.token;
+    if (token) {
+        sessionStorage.setItem('authToken', token);
+        sessionStorage.setItem('username', data.username);
+    } else {
+        throw new Error(response.non_field_errors);
+    }
+
 }

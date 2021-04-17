@@ -13,16 +13,13 @@ const loginTemplate = (onSubmit) => html `
                 <label>Password:</label>
                 <input class="input-field" type="password" name="password">
             </div>
-            <div>
-                <input class="input-button" type="button" value="Login">
-            </div>
+                <input class="input-button" type="submit" value="Login">
         </form>
     </div>
 `;
 
 export async function loginPage(ctx) {
     ctx.render(loginTemplate(onSubmit))
-
     async function onSubmit(ev) {
         ev.preventDefault();
         const formData = new FormData(ev.target);
@@ -30,7 +27,11 @@ export async function loginPage(ctx) {
             username: formData.get('username'),
             password: formData.get('password')
         }
-        await login(data);
-        ctx.page.redirect('/');
+        try {
+            await login(data);
+            ctx.page.redirect('/');
+        } catch (error) {
+            window.alert(error.message);
+        }
     }
 }
