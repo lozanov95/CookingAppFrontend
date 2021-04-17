@@ -1,0 +1,50 @@
+.input-section {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-form {
+    margin-top: 150px;
+    display: inline-block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.input-form div {
+    display: grid;
+    align-items: center;
+    align-content: center;
+}
+
+.input-form label {
+    font-size: 25px;
+}
+
+.input-form textarea {
+    border-radius: 10px;
+    width: 500px;
+    height: 100px;
+}
+
+.input-form select {
+    border-radius: 6px;
+    height: 40px;
+    font-size: 15px;
+}
+
+.input-field {
+    border-radius: 6px;
+    margin-top: 3px;
+    height: 30px;
+}
+
+.input-button {
+    background-color: #1547a3;
+    color: #FFFFFF;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    font-size: 25px;
+    margin-top: 10px;
+}

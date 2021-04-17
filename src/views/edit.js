@@ -2,35 +2,35 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 import { getRecipeById, editRecipe } from '../api/data.js';
 
 const editTemplate = (recipe, onSubmit) => html `
-<div class="container" id="createRecipe">
-     <form @submit=${onSubmit}>
-         <div class="row">
-             <label class="form-label">Name:</label>
-             <input class="form-control" type="text" name="name" placeholder="Enter the name of the recipe" .value=${recipe.name}>
-         </div>
-         <div class="row">
-             <label class="form-label">Difficulty:</label>
-             <select class="form-control" name="difficulty" .value=${recipe.difficulty}>
-                 <option value="Easy">Easy</option>
-                 <option value="Medium">Medium</option>
-                 <option value="Hard">Hard</option>
-             </select>
-         </div>
-         <div class="row">
-             <label class="form-label">Ingredients:</label>
-             <textarea class="form-control" name="ingredients" id="" cols="30" rows="10" placeholder="Enter the needed ingredients for the recipe" .value=${recipe.ingredients}></textarea>
-         </div>
-         <div class="row">
-             <label class="form-label">Preparation steps:</label>
-             <textarea class="form-control" name="preparation_steps" id="" cols="30" rows="10" placeholder="Enter the preparation steps for the recipe" .value=${recipe.preparation_steps}></textarea>
-         </div>
-         <div class="row">
-             <label class="form-label">Image URL:</label>
-             <input class="form-control" type="text" name="image_url" .value=${recipe.image_url}>
-         </div>
-         <button type="submit" class="btn btn-primary">Submit changes</button>
-     </form>
- </div>
+    <div class="input-section">
+        <form class="input-form" @submit=${onSubmit}>
+            <div>
+                <label>Name:</label>
+                <input class="input-field" type="text" name="name" placeholder="Enter the name of the recipe" .value=${recipe.name}>
+            </div>
+            <div>
+                <label>Difficulty:</label>
+                <select name="difficulty" .value=${recipe.difficulty}>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+            </div>
+            <div>
+                <label>Ingredients:</label>
+                <textarea name="ingredients" id="" cols="30" rows="10" placeholder="Enter the needed ingredients for the recipe" .value=${recipe.ingredients}></textarea>
+            </div>
+            <div>
+                <label>Preparation steps:</label>
+                <textarea name="preparation_steps" id="" cols="30" rows="10" placeholder="Enter the preparation steps for the recipe" .value=${recipe.preparation_steps}></textarea>
+            </div>
+            <div>
+                <label>Image URL:</label>
+                <input class="input-field" type="text" name="image_url" .value=${recipe.image_url}>
+            </div>
+            <button type="submit" class="input-button">Submit changes</button>
+        </form>
+    </div>
 `;
 
 export async function editPage(ctx) {
