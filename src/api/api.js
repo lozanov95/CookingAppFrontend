@@ -58,6 +58,7 @@ export async function login(data) {
     const token = response.token;
     if (token) {
         sessionStorage.setItem('authToken', token);
+        sessionStorage.setItem('user_id', response.user_id);
         sessionStorage.setItem('username', data.username);
     } else {
         throw new Error(response.non_field_errors);
