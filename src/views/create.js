@@ -48,7 +48,11 @@ export async function createPage(ctx) {
             image_url: formData.get('image_url')
         }
 
-        await createRecipe(data);
-        ctx.page.redirect('/recipes')
+        try {
+            await createRecipe(data);
+            ctx.page.redirect('/recipes')
+        } catch (error) {
+            window.alert(error.message)
+        }
     }
 }
