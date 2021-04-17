@@ -1,0 +1,38 @@
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    height: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.nav-right {
+    float: right;
+    margin-right: 20px;
+}
+
+.nav-left {
+    float: left;
+}
+
+nav ul {
+    display: inline;
+}
+
+nav li {
+    display: inline;
+}
+
+nav li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    background-color: gray;
+}
+
+nav li a.active {
+    background-color: grey;
+}
