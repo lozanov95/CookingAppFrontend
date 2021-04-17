@@ -12,7 +12,7 @@ const recipeCard = (recipe) => html `
     <h3 class="card-title">${recipe.name}</h3>
     <img class="card-image" src="${recipe.image_url}">
     <div class="card-footer-space-between">
-        <span>Difficulty: ${recipe.difficulty} </span><a href=${`/details/${recipe.id}`} class="btn card-btn">View</a>
+        <span>Difficulty: ${recipe.difficulty} </span><a href=${`/details/${recipe.id}`} class="card-btn">View</a>
     </div>
 </div>
 `

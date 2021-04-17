@@ -19,10 +19,14 @@ const detailsTemplate = (recipe) => html `
             <p class="card-section-title">Preparation steps</p>
             <p class="card-section">${recipe.preparation_steps}</p>
         </div>
-        <div class=".card-footer-space-between">            
-                <a href='/recipes' class="btn card-btn">Back</a>   
-                <a  href=${`/edit/${recipe.id}`} class="btn card-btn">Edit</a>
-                <a href=${`/delete/${recipe.id}`} class="btn card-btn">Delete</a>            
+        <div class="card-footer-space-between">     
+            <ul>
+                <a href='/recipes' class="card-btn">Back</a>                   
+            </ul>       
+            <ul>                    
+                <a href=${`/edit/${recipe.id}`} class="card-btn">Edit</a>  
+                <a href=${`/delete/${recipe.id}`} class="card-btn">Delete</a>   
+            </ul>
         </div>
 </div>
 `;
