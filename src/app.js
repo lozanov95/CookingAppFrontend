@@ -33,8 +33,8 @@ page.start();
 setNav()
 
 function middleware(ctx, next) {
+    setNav();
     ctx.render = (content) => render(content, main);
-    setNav()
     next();
 }
 
