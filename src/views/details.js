@@ -2,7 +2,7 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 import { getRecipeById } from '../api/data.js';
 
 const detailsTemplate = (recipe) => html `
-<div class="details-section">
+    <div class="details-section">
         <div>
             <h3 class="card-title">${recipe.name}</h3>
         </div>
@@ -22,18 +22,17 @@ const detailsTemplate = (recipe) => html `
         <div class="card-footer-space-between">     
             <ul>
                 <a href='/recipes' class="card-btn">Back</a>                   
-            </ul>       
-            <ul>                    
+            </ul> 
+            ${recipe.creator_id == sessionStorage.getItem('user_id') ? html`<ul>                    
                 <a href=${`/edit/${recipe.id}`} class="card-btn">Edit</a>  
                 <a href=${`/delete/${recipe.id}`} class="card-btn">Delete</a>   
-            </ul>
+            </ul>` : ''}    
         </div>
-</div>
+    </div>
 `;
 
 export async function detailsPage(ctx) {
     const id = ctx.params.id;
     const recipe = await getRecipeById(id);
     ctx.render(detailsTemplate(recipe));
-
 }
