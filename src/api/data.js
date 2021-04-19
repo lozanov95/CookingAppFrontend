@@ -29,5 +29,3 @@ export async function createRecipe(data) {
 export async function editRecipe(id, data) {
     return await api.put(`recipes/edit/${id}`, data);
 }
-
-window.register = api.register;
