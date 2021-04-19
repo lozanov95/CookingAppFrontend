@@ -12,11 +12,13 @@ import { aboutPage } from './views/about.js';
 import { editPage } from './views/edit.js';
 import { loginPage } from './views/login.js';
 import { registerPage } from './views/register.js';
+import { myRecipesPage } from './views/myrecipes.js';
 
 const main = document.getElementById('content');
 
 page('/', middleware, homePage);
 page('/recipes', middleware, recipesPage);
+page('/myrecipes', middleware, myRecipesPage)
 page('/create', middleware, createPage);
 page('/delete/:id', deletePage);
 page('/details/:id', middleware, detailsPage);

@@ -1,6 +1,6 @@
 export const settings = {
     host: '',
-    debug: false
+    debug: true
 }
 
 async function request(url, options = {}) {

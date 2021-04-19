@@ -29,3 +29,7 @@ export async function createRecipe(data) {
 export async function editRecipe(id, data) {
     return await api.put(`recipes/edit/${id}`, data);
 }
+
+export async function getRecipesByCreatorID(userId) {
+    return await api.get(`recipes?creator_id=${userId}`);
+}
