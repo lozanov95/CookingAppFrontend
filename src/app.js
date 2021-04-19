@@ -30,13 +30,28 @@ page('/logout', logoutPage);
 
 page.start();
 
+setNav()
 
 function middleware(ctx, next) {
     ctx.render = (content) => render(content, main);
+    setNav()
     next();
 }
 
 async function logoutPage() {
     await logout();
     page.redirect('/');
+}
+
+function setNav() {
+    const auth = sessionStorage.getItem('authToken') ? true : false;
+    const elementDisplayStyle = 'inline';
+    const elementHideStyle = 'none';
+    if (auth) {
+        document.querySelectorAll('.user').forEach((el) => el.style.display = elementDisplayStyle);
+        document.querySelectorAll('.guest').forEach((el) => el.style.display = elementHideStyle);
+    } else {
+        document.querySelectorAll('.user').forEach((el) => el.style.display = elementHideStyle);
+        document.querySelectorAll('.guest').forEach((el) => el.style.display = elementDisplayStyle);
+    }
 }

@@ -36,3 +36,7 @@ nav a:hover {
 nav li a.active {
     background-color: grey;
 }
+
+nav div {
+    display: inline;
+}
