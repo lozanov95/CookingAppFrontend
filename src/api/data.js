@@ -33,3 +33,11 @@ export async function editRecipe(id, data) {
 export async function getRecipesByCreatorID(userId) {
     return await api.get(`recipes?creator_id=${userId}`);
 }
+
+export async function postComment(recipeId, content) {
+    return await api.post(`recipes/${recipeId}/comments`, content);
+}
+
+export async function getComments(recipeId) {
+    return await api.get(`recipes/${recipeId}/comments`);
+}

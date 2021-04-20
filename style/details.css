@@ -16,3 +16,27 @@
     width: 600px;
     border-radius: 10px;
 }
+
+.comment-button {
+    border-radius: 8px;
+    width: 150px;
+    height: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    background-color: #c8e97d;
+}
+
+.comments-container {
+    margin-top: 30px;
+    width: 400px;
+    border-style: solid;
+    border-color: #797674;
+    border-radius: 8px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.comments {
+    display: block;
+}

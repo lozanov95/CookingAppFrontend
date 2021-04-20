@@ -1,7 +1,8 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { getRecipeById } from '../api/data.js';
+import { commentsTemplate } from '../generic-templates/comment-template.js';
+import { getRecipeById, postComment, getComments } from '../api/data.js';
 
-const detailsTemplate = (recipe) => html `
+const detailsTemplate = (recipe, onSubmit) => html `
     <div class="details-section">
         <div>
             <h3 class="card-title">${recipe.name}</h3>
@@ -29,10 +30,20 @@ const detailsTemplate = (recipe) => html `
             </ul>` : ''}    
         </div>
     </div>
+    ${commentsTemplate(recipe.comments, onSubmit)}
 `;
 
 export async function detailsPage(ctx) {
     const id = ctx.params.id;
     const recipe = await getRecipeById(id);
-    ctx.render(detailsTemplate(recipe));
+    ctx.render(detailsTemplate(recipe, onSubmit));
+
+    async function onSubmit(ev){
+        ev.preventDefault()
+        const formData = new FormData(ev.target);
+        const content = formData.get('content').trim();
+        await postComment(id, content); 
+        const comments = await getComments(id);
+        ctx.render(commentsTemplate(comments, onSubmit))
+    }
 }
