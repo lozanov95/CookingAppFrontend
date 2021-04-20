@@ -1,6 +1,6 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import { commentsTemplate } from '../generic-templates/comment-template.js';
-import { getRecipeById, postComment, getComments } from '../api/data.js';
+import { getRecipeById, postComment } from '../api/data.js';
 
 const detailsTemplate = (recipe, onSubmit) => html `
     <div class="details-section">
@@ -43,7 +43,7 @@ export async function detailsPage(ctx) {
         const formData = new FormData(ev.target);
         const content = formData.get('content').trim();
         await postComment(id, content); 
-        const comments = await getComments(id);
-        ctx.render(commentsTemplate(comments, onSubmit))
+        document.querySelector('input').value = '';
+        ctx.page.redirect('/details/'+id)
     }
 }
